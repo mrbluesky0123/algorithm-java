@@ -1,4 +1,4 @@
-package me.mrbluesky.algorithm;
+package me.mrbluesky.algorithm.immigration;
 
 import java.util.Scanner;
 
