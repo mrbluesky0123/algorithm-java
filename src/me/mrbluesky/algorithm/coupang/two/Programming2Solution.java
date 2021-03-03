@@ -1,6 +1,7 @@
 package me.mrbluesky.algorithm.coupang.two;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class Programming2Solution {
@@ -72,11 +73,12 @@ public class Programming2Solution {
 
 }
 
-class Grade {
+class Grade implements Comparable{
     private int index;
     private String id;
     private String grade;
-
+    private final ArrayList<String> grades = new ArrayList<>(Arrays.asList("A+", "A0", "A-", "B+", "B0", "B-", "C+",
+                                                                                    "C0", "C-", "D+", "D0", "D-", "F"));
     public Grade(int index, String id, String grade) {
         this.index = index;
         this.id = id;
@@ -109,5 +111,21 @@ class Grade {
 
     public String toString() {
         return this.id + " " + this.grade;
+    }
+
+
+    @Override
+    public int compareTo(Object o) {
+        Grade target = (Grade) o;
+        int thisGradeIdx = this.grades.indexOf(this.grade);
+        int targetGradeIdx = this.grades.indexOf(target.getGrade());
+        if(thisGradeIdx > targetGradeIdx) {
+
+        } else if(thisGradeIdx > targetGradeIdx) {
+
+        } else {
+
+        }
+        return 0;
     }
 }
