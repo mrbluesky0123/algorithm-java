@@ -8,14 +8,14 @@ public class GoToSchool {
         this.map = new int[n+1][m+1];
         this.puddles = puddles;
 
-        for(int j = 1; j < map.length; j++) {
-            for(int i = 1; i < map[0].length; i++) {
+        for(int j = 1; j <= n; j++) {
+            for(int i = 1; i <= m; i++) {
                 if(i == 1 && j == 1) {
                     map[j][i] = 1;
-                } else if(isPuddle(j, i)) {
+                } else if(map[j][i] == -1) {
                     map[j][i] = 0;
                 } else {
-                    map[j][i] = map[j-1][i] + map[j][i-1];
+                    map[j][i] = (map[j-1][i] + map[j][i-1]) % 1000000007;
                 }
             }
         }
@@ -29,16 +29,13 @@ public class GoToSchool {
 
 
 
-        return map[n][m] % 1000000007;
+        return map[n][m];
     }
 
-    public boolean isPuddle(int m, int n) {
+    public void init() {
         for(int[] puddle: this.puddles) {
-            if(m == puddle[0] && n == puddle[1]) {
-                return true;
-            }
+            this.map[puddle[1]][puddle[0]] = -1;
         }
-        return false;
     }
 
 }
