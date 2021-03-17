@@ -25,7 +25,7 @@ public class WalkerHeaven {
                     right[i][j] = right[i][j-1];
                     down[i][j] = down[i-1][j];
                 }
-                showProcess();
+//                showProcess();
             }
         }
         return (right[m][n-1] + down[m-1][n]) % MOD;
